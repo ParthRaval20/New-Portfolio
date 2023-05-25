@@ -102,11 +102,11 @@ section {
 
     @keyframes scaleAnim {
         0% {
-            transform: translateY(-100%) scaleY(0);
+            transform: translateX(50%) scaleX(0);
         }
 
         100% {
-            transform: translateY(0) scaleY(1);
+            transform: translateX(0) scaleX(1);
         }
     }
 }
@@ -156,10 +156,10 @@ section {
 
 //theme-btn
 .theme-btn{
-    top: 5%;
+    top: 7%;
     right: 3%;
-    width: 70px;
-    height: 70px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     background-color: var(--color-grey-4);
     cursor: pointer;
@@ -170,7 +170,7 @@ section {
     box-shadow: 0 3px 15px rgba(0,0,0,.3);
     transition: all .1s ease-in-out;
     &:active{
-        transform: translateY(-3px);
+        transform: translateY(-5px);
     }
     i{
         font-size: 1.4rem;
@@ -659,51 +659,71 @@ section {
 }
 
 //independant component
-.btn-con{
+.submit-btn {
     display: flex;
-    align-self: flex-start;
+    justify-content: flex-start;
 
+    .main-btn {
+        border-radius: 30px;
+        color: inherit;
+        font-weight: 600;
+        position: relative;
+        border: 1px solid var(--color-secondary);
+        display: flex;
+        align-self: flex-start;
+        align-items: center;
+        overflow: hidden;
+
+        .btn-text {
+            padding: 0 2rem;
+        }
+
+        .btn-icon {
+            background-color: var(--color-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            padding: 1rem;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateX(100%);
+            transition: all .4s ease-in-out;
+            z-index: -1;
+        }
+
+        &:hover {
+            transition: all .4s ease-in-out;
+            &::before {
+                width: 100%;
+                height: 100%;
+                background-color: var(--color-secondary);
+                transform: translateX(0);
+                transition: all .4s ease-in-out;
+            }
+        }
+    }
 }
-.main-btn{
-    border-radius: 30px;
-    color: inherit;
-    font-weight: 600;
-    position: relative;
-    border: 1px solid var(--color-secondary);
-    display: flex;
-    align-self: flex-start;
+
+button[type=submit]{
+    margin-left: 20.5rem;
+    margin-top: -3.5rem;
+    background-color: var(--color-secondary);
     display: flex;
     align-items: center;
-    overflow: hidden;
-    .btn-text{
-        padding: 0 2rem;
-    }
-    .btn-icon{
-        background-color: var(--color-secondary);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        padding: 1rem;
-    }
-    &::before{
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translateX(100%);
+    justify-content: center;
+    border-radius: 10%;
+    padding: 5px;
+    color: var(--color-white);
+    font-weight: 800;
+    &:hover,:active {
         transition: all .4s ease-in-out;
-        z-index: -1;
-    }
-    &:hover{
-        transition: all .4s ease-in-out;
-        &::before{
-            width: 100%;
-            height: 100%;
-            background-color: var(--color-secondary);
-            transform: translateX(0);
-            transition: all .4s ease-in-out;
-        }
+        opacity: 0.9;
     }
 }
 
